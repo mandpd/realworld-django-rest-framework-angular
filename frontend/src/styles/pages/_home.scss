@@ -13,6 +13,23 @@
       #8b00ff 90%
     );
     box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, 0.3), inset 0 -8px 8px -8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+
+    /* Nyan Cat Animation */
+    &::before {
+      content: '';
+      background-image: url('../../../assets/nyancat.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      width: 40px;
+      height: 24px;
+      top: 30px;
+      left: -40px;
+      z-index: 2;
+      animation: nyan-fly 6s linear infinite;
+    }
 
     p {
       color: #fff;
@@ -43,5 +60,26 @@
     p {
       margin-bottom: 0.2rem;
     }
+  }
+}
+
+/* Keyframes for Nyan Cat animation */
+@keyframes nyan-fly {
+  0% {
+    left: -40px;
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    left: 100%;
+    transform: translateY(0);
   }
 }

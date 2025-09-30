@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="24px" viewBox="0 0 40 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Nyan Cat</title>
+    <g stroke="none" fill="none">
+        <!-- Body (Pop tart) -->
+        <rect fill="#FF91B9" x="8" y="4" width="24" height="16" rx="2"/>
+        <rect fill="#FFCED9" x="10" y="6" width="20" height="12" rx="1"/>
+
+        <!-- Head -->
+        <rect fill="#999999" x="28" y="8" width="8" height="8"/>
+        <rect fill="#666666" x="32" y="6" width="4" height="4"/>
+        <rect fill="#666666" x="32" y="14" width="4" height="4"/>
+
+        <!-- Face -->
+        <rect fill="#000000" x="34" y="10" width="2" height="2"/>
+        <rect fill="#FF3366" x="32" y="12" width="2" height="2"/>
+
+        <!-- Feet -->
+        <rect fill="#999999" x="10" y="16" width="4" height="4"/>
+        <rect fill="#999999" x="18" y="16" width="4" height="4"/>
+        <rect fill="#999999" x="26" y="16" width="4" height="4"/>
+    </g>
+</svg>
