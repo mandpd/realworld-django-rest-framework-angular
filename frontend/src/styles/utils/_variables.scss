@@ -2,9 +2,9 @@
 // Colors based on the original theme
 :root {
   // Primary colors
-  --primary-color: #5CB85C;
-  --primary-hover: #449d44;
-  --primary-focus: #5CB85C;
+  --primary-color: #3A7A3A;
+  --primary-hover: #2C5C2C;
+  --primary-focus: #3A7A3A;
   
   // Secondary colors
   --success-color: #5cb85c;
@@ -24,8 +24,8 @@
 }
 
 // SCSS Variables for use in mixins and calculations
-$primary-color: #5CB85C;
-$primary-hover: #449d44;
+$primary-color: #3A7A3A;
+$primary-hover: #2C5C2C;
 $success-color: #5cb85c;
 $info-color: #5bc0de;
 $warning-color: #f0ad4e;
