@@ -23,6 +23,7 @@ from rest_framework_nested.routers import NestedSimpleRouter
 
 from articles.views import ArticleViewSet, TagListView, CommentViewSet
 from users.views import UserViewSet, UserView, ProfileViewSet
+from config.views import VersionView
 
 router = DefaultRouter(trailing_slash=False)
 router.register("users", UserViewSet, basename="users")
@@ -40,6 +41,7 @@ urlpatterns = [
     path("api/", include(article_router.urls)),
     path("api/user", UserView.as_view(), name="user"),
     path("api/tags", TagListView.as_view(), name="tags-list"),
+    path("api/version", VersionView.as_view(), name="version"),
     # Frontend
     re_path(r"^(?:.*)$", TemplateView.as_view(template_name="index.html")),
 ]
