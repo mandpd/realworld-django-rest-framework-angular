@@ -23,7 +23,7 @@ from rest_framework_nested.routers import NestedSimpleRouter
 
 from articles.views import ArticleViewSet, TagListView, CommentViewSet
 from users.views import UserViewSet, UserView, ProfileViewSet
-from config.views import VersionView
+from .views import VersionView
 
 router = DefaultRouter(trailing_slash=False)
 router.register("users", UserViewSet, basename="users")
