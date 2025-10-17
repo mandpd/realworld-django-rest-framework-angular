@@ -48,12 +48,16 @@ class LoginSerializer(serializers.Serializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     following = serializers.SerializerMethodField()
+    followers_count = serializers.SerializerMethodField()
 
     def get_following(self, user):
         if self.context["request"].user.is_anonymous:
             return False
         return self.context["request"].user.is_following(user)
 
+    def get_followers_count(self, user):
+        return user.followers.count()
+
     class Meta:
         model = User
-        fields = ["username", "email", "bio", "image", "following"]
+        fields = ["username", "email", "bio", "image", "following", "followers_count"]
