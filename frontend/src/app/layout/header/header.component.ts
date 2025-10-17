@@ -52,6 +52,7 @@ export class HeaderComponent {
 
     if (user) {
       menuItems.push({ name: 'New Article', link: '/editor', isActive: false, icon: 'ion-compose' });
+      menuItems.push({ name: 'Following', link: '/following', isActive: false, icon: 'ion-person-stalker' });
       menuItems.push({ name: 'Settings', link: '/settings', isActive: false, icon: 'ion-gear-a' });
       menuItems.push({ name: 'Profile', link: '/my-profile', isActive: false, customDisplay: 'Profile' });
     } else {

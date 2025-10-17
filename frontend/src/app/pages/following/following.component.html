@@ -1,0 +1,27 @@
+<div class="following-page">
+  <div class="container">
+    <h1 class="page-title">Users You Follow</h1>
+    @if (isLoading()) {
+      <p>Loading...</p>
+    } @else {
+      @if (followedUsers().length === 0) {
+        <p>You are not following any users yet.</p>
+      } @else {
+        <div class="user-list">
+          @for (user of followedUsers(); track user.username) {
+            <div class="user-item">
+              <img [src]="user.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'" [alt]="user.username" class="user-image">
+              <div class="user-info">
+                <h2>
+                  <a [routerLink]="['/profile', user.username]">{{ user.username }}</a>
+                </h2>
+                <p>{{ user.bio }}</p>
+              </div>
+              <button class="btn btn-outline-secondary" (click)="unfollow(user.username)">Unfollow</button>
+            </div>
+          }
+        </div>
+      }
+    }
+  </div>
+</div>

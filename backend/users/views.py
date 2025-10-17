@@ -67,3 +67,16 @@ class ProfileViewSet(RetrieveModelMixin, viewsets.GenericViewSet):
         else:  # Follow
             request.user.following.add(user)
         return Response(self.get_serializer(user).data)
+
+    @action(detail=False, methods=["GET"])
+    def following(self, request):
+        """Get the list of users that the current user is following."""
+        if request.user.is_anonymous:
+            raise PermissionDenied()
+        following_users = request.user.following.all().order_by('username')
+        page = self.paginate_queryset(following_users)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(following_users, many=True)
+        return Response(serializer.data)

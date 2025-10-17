@@ -10,12 +10,14 @@ import { ProfileComponent } from "./pages/profile/profile.component";
 import { FeedMenuEnum } from "./common/models/view/feed.view-model";
 import { ProfileRoutingData } from "./common/models/view/profile-routing-data.model";
 import { authenticationGuard } from "./common/guards/authentication.guard";
+import { FollowingComponent } from "./pages/following/following.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'settings', component: UserSettingsComponent, canActivate: [authenticationGuard] },
+  { path: 'following', component: FollowingComponent, canActivate: [authenticationGuard] },
   {
     path: 'editor',
     canActivateChild: [authenticationGuard],

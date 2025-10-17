@@ -23,4 +23,8 @@ export class ProfileService {
   public unfollowUser(username: string): Observable<ProfileResponse> {
     return this._requestHelper.delete(`/profiles/${username}/follow`);
   }
+
+  public getFollowedUsers(): Observable<{ profiles: UserProfile[] }> {
+    return this._requestHelper.get('/profiles/following');
+  }
 }
