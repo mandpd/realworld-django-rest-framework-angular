@@ -35,6 +35,7 @@ export class HomeComponent {
     if (this._authenticationService.currentUserToken) {
       return [
         { id: FeedMenuEnum.MINE, name: 'My Feed', isActive: false },
+        { id: FeedMenuEnum.FOLLOWING, name: 'Following', isActive: false },
         { id: FeedMenuEnum.GLOBAL, name: 'Global Feed', isActive: true }
       ];
     }

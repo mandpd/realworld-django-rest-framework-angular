@@ -40,12 +40,12 @@ class ArticleViewSet(
         )
         if self.action in ["update", "destroy"]:
             return queryset.filter(author=self.request.user)
-        if self.action == "feed":
+        if self.action == "feed" or self.request.query_params.get('followed'):
             return queryset.filter(author__followers=self.request.user)
         return queryset
 
     def get_permissions(self):
-        if self.request.method not in SAFE_METHODS or self.action == "feed":
+        if self.request.method not in SAFE_METHODS or self.action == "feed" or self.request.query_params.get('followed'):
             return [IsAuthenticated()]
         return []
 

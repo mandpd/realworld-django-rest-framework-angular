@@ -64,6 +64,11 @@ export class ArticlesFeedComponent implements OnChanges {
       return this._articleService.queryFeedArticles(queryParams);
     }
 
+    if (this.feedMenuId === FeedMenuEnum.FOLLOWING) {
+      // Use the same endpoint as 'My Feed' but add a parameter to filter by followed authors
+      return this._articleService.queryArticles({...queryParams, followed: true});
+    }
+
     return this._articleService.queryArticles(queryParams);
   }
 
