@@ -29,3 +29,7 @@ class User(AbstractUser):
 
     def is_following(self, user: "User") -> bool:
         return self.following.filter(pk=user.pk).exists()
+
+    @property
+    def followers_count(self) -> int:
+        return self.followers.count()

@@ -3,6 +3,7 @@ export interface UserProfile {
   bio: string;
   image: string;
   following: boolean;
+  followers_count: number;
 }
 
 export interface ProfileResponse {

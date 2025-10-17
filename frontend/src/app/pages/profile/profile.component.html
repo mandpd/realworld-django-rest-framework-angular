@@ -10,6 +10,9 @@
               <div>
                 {{ profile()!.bio }}
               </div>
+              <div>
+                <span class="follower-count">{{ profile()!.followers_count }} Followers</span>
+              </div>
 
               @if (isMyProfile) {
                 <button class="btn btn-sm btn-outline-secondary action-btn" routerLink="/settings">
