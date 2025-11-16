@@ -40,6 +40,7 @@ export class ArticleService {
   }
 
   public queryArticles(params: QueryArticlesParams): Observable<ArticlesResponse> {
+    console.log('[Article Service] Calling /articles endpoint with params:', params);
     return this._requestHelper.get('/articles', {params});
   }
 

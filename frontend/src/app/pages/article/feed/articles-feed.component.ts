@@ -45,9 +45,18 @@ export class ArticlesFeedComponent implements OnChanges {
 
   private _queryFeed(): void {
     this.isLoading.set(true);
+    const queryParams = {
+      ...this.queryParams,
+      limit: QUERY_PAGE_SIZE,
+      offset: this.activePageIndex() * QUERY_PAGE_SIZE
+    };
+    console.log('[Global Feed] API call starting with params:', queryParams);
     this._constructQueryRequest()
       .pipe(finalize(() => this.isLoading.set(false)))
       .subscribe((response: ArticlesResponse) => {
+        console.log('[Global Feed] API response received:', response);
+        console.log('[Global Feed] Articles count:', response.articlesCount);
+        console.log('[Global Feed] Articles:', response.articles);
         this.totalPages = Math.ceil(response.articlesCount / QUERY_PAGE_SIZE);
         this.articles.set(response.articles);
       })

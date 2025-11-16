@@ -19,8 +19,10 @@ export class RequestHelperService {
       ...queryOptions,
       headers: this._constructRequestHeaders()
     }
+    const fullUrl = this._decorateUrl(url);
+    console.log('[Request Helper] HTTP GET:', fullUrl, 'Options:', options);
 
-    return this._httpClient.get(this._decorateUrl(url), options);
+    return this._httpClient.get(fullUrl, options);
   }
 
   public post(url: string, body: any): Observable<any> {
